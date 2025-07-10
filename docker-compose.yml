@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  airlock-api:
+    build: .
+    container_name: airlock-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs   # Persist logs
+    restart: always
+
+  airlock-ui:
+    build: .
+    container_name: airlock-ui
+    command: streamlit run streamlit_ui/dashboard.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./logs:/app/logs
+    restart: always
