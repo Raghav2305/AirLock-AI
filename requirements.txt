@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+openai               # Used for initial placeholder classifier
+streamlit
+python-dotenv
+altair
+pandas
+
